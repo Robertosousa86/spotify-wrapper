@@ -1,0 +1,29 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robertosousa86/spotify-wrapper.git"
+  },
+  "keywords": [],
+  "author": "Roberto Sousa <robertosousa186@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robertosousa86/spotify-wrapper/issues"
+  },
+  "homepage": "https://github.com/Robertosousa86/spotify-wrapper#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
