@@ -1,5 +1,6 @@
-export const search = () => fetch('http://stotify.com');
-export const searchAlbuns = () => {}
+export const search = (query, type) => fetch(`http://api.spotify.com/v1/search?q=${query}&type=${type}`);
+
+export const searchAlbums = () => {}
 export const searchArtists = () => {}
 export const searchTracks = () => {}
 export const searchPlaylists = () => {}
