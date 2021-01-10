@@ -1,6 +1,4 @@
-import chai, {
-  expect
-} from 'chai';
+import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import sinonStubPromise from 'sinon-stub-promise';
@@ -39,18 +37,22 @@ describe('Spotify Wrapper', () => {
   });
 
   describe('Generic Search', () => {
+    let fetchedStub;
+
+    beforeEach(() => {
+      fetchedStub = sinon.stub(global, 'fetch');
+    });
+
+    afterEach( () => {
+      fetchedStub.restore();
+    })
 
     it('should call fetch function', () => {
-      const fetchedStub = sinon.stub(global, 'fetch');
-
       const artists = search();
       expect(fetchedStub).to.have.been.calledOnce;
-
-      fetchedStub.restore();
     });
 
     it('should receive the correct url to fetch', () => {
-      const fetchedStub = sinon.stub(global, 'fetch');
 
       context('passing one type', () => {
 
@@ -66,16 +68,14 @@ describe('Spotify Wrapper', () => {
         const playlist = search('Incubus', 'playlist');
         expect(fetchedStub).to.have.been.calledWith('http://api.spotify.com/v1/search?q=Incubus&type=playlist');
 
-        fetchedStub.restore();
       });
 
       context('passing more than one type', () => {
-        const fetchedStub = sinon.stub(global, 'fetch');
   
         const artistsAndAlbums = search('Incubus', ['artist', 'album']);
         expect(fetchedStub).to.have.been.calledWith('http://api.spotify.com/v1/search?q=Incubus&type=artist,album');
-      })
+      });
   
-    })
-  })
+    });
+  });
 });
